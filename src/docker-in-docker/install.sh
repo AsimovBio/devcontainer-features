@@ -76,6 +76,8 @@ get_common_setting() {
 
 apt_get_update()
 {
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor > /usr/share/keyrings/yarn-arihive-keyring.gpg
+    
     if [ "$(find /var/lib/apt/lists/* | wc -l)" = "0" ]; then
         echo "Running apt-get update..."
         apt-get update -y
